@@ -12,15 +12,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.network :private_network, ip: "192.168.55.5"
   config.vm.hostname = "gitprep-vagrant-vm"
 
-  # virtualbox-specific
-  config.vm.provider :virtualbox do |vb|
-    vb.customize ["modifyvm", :id, "--hwvirtex", "off"]
-    vb.customize ["modifyvm", :id, "--vtxvpid", "off"]
-    vb.customize ["modifyvm", :id, "--memory", "512"]
-  end
-  
-  
+  # enable omnibus
   config.omnibus.chef_version = :latest
+
+  # chef solo provisioning
   config.vm.provision :chef_solo do |chef|
     chef.custom_config_path = "Vagrantfile.chef"
     chef.cookbooks_path = ["site-cookbooks"]
