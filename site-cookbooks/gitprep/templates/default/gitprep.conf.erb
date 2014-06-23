@@ -1,0 +1,50 @@
+;;; GitPrep configuration file
+
+[basic]
+;;; SSH port (default: 22)
+;;; This value is used by ssh git repository URL.
+;ssh_port=55555
+
+;;; Git command path
+;;; By default, git command path is automatically detected
+;;; from PATH enviroment variable or /usr/bin/git or /usr/local/bin/git
+;git_bin=/usr/local/bin/git
+
+;;; Tags limit (default:1000)
+;tags_limit=1000
+
+;;; Time Zone
+;;; GitPrep time zone is GMT by default
+;;; You can set your local time zone.
+time_zone=+9:00
+;time_zone=+10:30
+;time_zone=-4:00
+
+;;; Suspects encoding list for source code character encoding (default:UTF-8)
+;;; set comma separated encoding list if your source code is different from UTF-8.
+;;; encoding name follow Perl encoding API.
+;encoding_suspects=cp932,UTF-8
+
+;;; authorized_keys file for public key authentication via ssh.
+;;; default is "$ENV{HOME}/.ssh/authorized_keys"
+; authorized_keys_file=/home/gitprep/.ssh/authorized_keys
+
+[admin]
+;;; If you forget admin password,
+;;; set this value to 1 and access /reset-password page.
+;;; Forget to comment out after resetting password.
+;reset_password=1
+
+[hypnotoad]
+;;; Listen URL (default: http://*:10020)
+;listen=http://*:10020
+
+[reverse_proxy]
+;;; Reverse proxy support (default: 0)
+;on=1
+
+;;; Reverse proxy path depth (default: none)
+;;; If proxy path is http://somehost.com/foo, you set path_depth to 1.
+;;; If proxy path is http://somehost.com/foo/bar, you set path_depth to 2.
+;path_depth=1
+;path_depth=2
